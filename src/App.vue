@@ -1,14 +1,12 @@
 <template>
   <div id="app">
     <mylist v-bind:title="message"
-    v-on:result-enent="appAction" />
     <hr>
     <div><table v-html="log" align="center" ></table></div>
   </div>
 </template>
 
 <script>
-import mylist from './components/Mylist.vue'
 
 export default {
   name: 'App',
