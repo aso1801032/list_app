@@ -25,7 +25,6 @@
             doAction:function(){
                 var text = this.text;
                 
-                this.$emit("result-event",text);
             }
         }
     }
