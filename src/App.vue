@@ -1,13 +1,47 @@
 <template>
   <div id="app">
+    <mylist v-bind:title="message"
+    v-on:result-enent="appAction" />
+    <hr>
+    <div><table v-html="log" align="center" ></table></div>
   </div>
 </template>
 
 <script>
+import mylist from './components/Mylist.vue'
 
 export default {
   name: 'App',
   components: {
+    Mylist
+  },
+  data:function(){
+    return  {
+      message:"メモを入力してください",
+      list:[],
+      count:0,
+    };
+  },
+  computed:{
+    log:function(){
+      var table="<tr><th class=head></th></tr>";
+      for(var i in this.list){
+        table += "<tr><td>+this.list[i]+</td></tr>"
+      }
+      return table;
+    }
+  },
+  methods:{
+    appAction:function(text){
+      if(this.length == 5){
+        this.list.unshift(text);
+        this.list.splice(5,1);
+        this.count +=1;
+      }else{
+        this.listunshift(text);
+        this.count+=1;
+      }
+    }
   }
 }
 </script>
